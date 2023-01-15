@@ -34,7 +34,7 @@ return require('packer').startup(function(use)
   use 'noahfrederick/vim-laravel'
   use 'posva/vim-vue'
   use 'jwalton512/vim-blade'
-
+  use 'wuelnerdotexe/vim-astro'
   use {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
