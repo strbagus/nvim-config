@@ -16,3 +16,4 @@ vim.opt.shiftround = true
 vim.opt.expandtab = true
 
 vim.cmd "set clipboard=unnamedplus"
+vim.cmd "set relativenumber"

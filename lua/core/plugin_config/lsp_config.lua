@@ -1,6 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "sumneko_lua" }
+  ensure_installed = { "lua_ls" }
 })
 local on_attach = function(_, _)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
@@ -14,7 +14,7 @@ end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-require("lspconfig").sumneko_lua.setup {
+require("lspconfig").lua_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
