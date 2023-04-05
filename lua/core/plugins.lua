@@ -12,33 +12,34 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
-  use 'ellisonleao/gruvbox.nvim'
-  use 'preservim/nerdtree'
+  use 'wbthomason/packer.nvim'              -- package manager
+  use 'ellisonleao/gruvbox.nvim'            -- theme
+  use 'preservim/nerdtree'                  -- tree explorer
   use 'Xuyuanp/nerdtree-git-plugin'
-  use 'nvim-lualine/lualine.nvim'
-  use 'nvim-treesitter/nvim-treesitter'
-  use 'nvim-tree/nvim-web-devicons'
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip'
-  use 'rafamadriz/friendly-snippets'
-  use 'wakatime/vim-wakatime'
-  use 'jiangmiao/auto-pairs'
-  use 'airblade/vim-gitgutter'
-  use 'othree/xml.vim'
-  use 'othree/html5.vim'
-  use 'folke/tokyonight.nvim'
-  use 'noahfrederick/vim-composer'
-  use 'noahfrederick/vim-laravel'
-  use 'posva/vim-vue'
-  use 'jwalton512/vim-blade'
-  use 'wuelnerdotexe/vim-astro'
+  use 'nvim-lualine/lualine.nvim'           -- vim bar indicator
+  use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+  use 'tpope/vim-fugitive'
+  use 'wakatime/vim-wakatime'               -- monitoring coding time
+  use 'jiangmiao/auto-pairs'                -- auto pairs bracket
+
   use {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig",
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v2.x',
+    requires = {
+      -- LSP Support
+      {'neovim/nvim-lspconfig'},             -- Required
+      {                                      -- Optional
+        'williamboman/mason.nvim',
+        run = function()
+          pcall(vim.cmd, 'MasonUpdate')
+        end,
+      },
+      {'williamboman/mason-lspconfig.nvim'}, -- Optional
+      -- Autocompletion
+      {'hrsh7th/nvim-cmp'},     -- Required
+      {'hrsh7th/cmp-nvim-lsp'}, -- Required
+      {'L3MON4D3/LuaSnip'},     -- Required
+    }
   }
   use {
     'nvim-telescope/telescope.nvim',

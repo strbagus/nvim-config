@@ -1,25 +1,20 @@
-require("mason").setup()
-require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls" }
+local lsp = require('lsp-zero').preset({})
+
+lsp.ensure_installed({
+  'tsserver',
+  'eslint',
 })
-local on_attach = function(_, _)
-  vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
-  vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
 
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, {})
-  vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, {})
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-end
+lsp.on_attach(function(client, bufnr)
+  --lsp.default_keymaps({buffer = bufnr})
+  local opts = {buffer = bufnr, remap = false}
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+  vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, opts)
+  vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, opts)
+  vim.keymap.set('n', '<leader>vvr', function() vim.lsp.buf.references() end, opts)
+end)
 
-require("lspconfig").lua_ls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
+-- (Optional) Configure lua language server for neovim
+require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
-require("lspconfig").solargraph.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
+lsp.setup()
