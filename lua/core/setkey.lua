@@ -1,6 +1,7 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader  = ' '
 
+vim.o.encoding = "UTF-8"
 vim.opt.backspace = '2'
 vim.opt.showcmd = true
 vim.opt.laststatus = 2
@@ -27,42 +28,9 @@ vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("x", "p", "\"_dP")
 vim.cmd "set clipboard=unnamedplus"
 vim.cmd "set relativenumber"
+vim.cmd "set wrap linebreak"
 
--- turn off c-k & c-j for cmp mapping
+-- remapping c-k & c-j & reserved for cmp mapping
 local bufnr = vim.api.nvim_get_current_buf()
 vim.api.nvim_buf_set_keymap(bufnr, 'i', '<C-j>', ':<C-u><Esc>', { noremap = true, silent = true })
 vim.api.nvim_buf_set_keymap(bufnr, 'i', '<C-k>', ':<C-u><Esc>', { noremap = true, silent = true })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -14,14 +14,19 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'              -- package manager
   use 'ellisonleao/gruvbox.nvim'            -- theme
-  use 'preservim/nerdtree'                  -- tree explorer
-  use 'Xuyuanp/nerdtree-git-plugin'
+  use {
+    'preservim/nerdtree',                   -- tree explorer
+    requires = {
+      'Xuyuanp/nerdtree-git-plugin',        -- tree explorer git status
+      --'ryanoasis/vim-devicons'
+    }
+  }
+  use 'airblade/vim-gitgutter'
   use 'nvim-lualine/lualine.nvim'           -- vim bar indicator
   use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-  use 'tpope/vim-fugitive'
+  use 'tpope/vim-fugitive'                  -- git
   use 'wakatime/vim-wakatime'               -- monitoring coding time
   use 'jiangmiao/auto-pairs'                -- auto pairs bracket
-
   use {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
@@ -46,6 +51,7 @@ return require('packer').startup(function(use)
     tag = '0.1.0',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+  use 'bling/vim-bufferline'  --buffer navigation
   if packer_bootstrap then
     require('packer').sync()
   end
