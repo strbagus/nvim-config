@@ -18,7 +18,7 @@ vim.opt.expandtab = true
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 vim.opt.scrolloff=10
 
@@ -28,7 +28,6 @@ vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("x", "p", "\"_dP")
 vim.cmd "set clipboard=unnamedplus"
 vim.cmd "set relativenumber"
-vim.cmd "set wrap linebreak"
 
 -- remapping c-k & c-j & reserved for cmp mapping
 local bufnr = vim.api.nvim_get_current_buf()
