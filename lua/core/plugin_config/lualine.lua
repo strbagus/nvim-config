@@ -9,12 +9,12 @@ local colors = {
   yellow   = '#ECBE7B',
   cyan     = '#008080',
   darkblue = '#081633',
-  green    = '#98be65',
   orange   = '#FF8800',
   violet   = '#a9a1e1',
   magenta  = '#c678dd',
   blue     = '#51afef',
   red      = '#ec5f67',
+  green  = '#8aff90',
 }
 
 local conditions = {
@@ -76,33 +76,32 @@ ins_left {
   function()
     return '▊'
   end,
-  color = { fg = colors.blue }, -- Sets highlighting of component
+  color = { fg = colors.green }, -- Sets highlighting of component
   padding = { left = 0, right = 1 }, -- We don't need space before this
 }
-
 ins_left {
   -- mode component
   function()
-    return '🤖'
+    return '❖'
   end,
   color = function()
     -- auto change color according to neovims mode
     local mode_color = {
-      n = colors.red,
+      n = colors.blue,
       i = colors.green,
-      v = colors.blue,
-      [''] = colors.blue,
-      V = colors.blue,
+      v = colors.red,
+      [''] = colors.red,
+      V = colors.red,
       c = colors.magenta,
-      no = colors.red,
+      no = colors.blue,
       s = colors.orange,
       S = colors.orange,
       [''] = colors.orange,
       ic = colors.yellow,
       R = colors.violet,
       Rv = colors.violet,
-      cv = colors.red,
-      ce = colors.red,
+      cv = colors.blue,
+      ce = colors.bue,
       r = colors.cyan,
       rm = colors.cyan,
       ['r?'] = colors.cyan,
@@ -117,6 +116,7 @@ ins_left {
 ins_left {
   'filesize',
   cond = conditions.buffer_not_empty,
+  color = { fg = colors.red },
 }
 
 ins_left {
@@ -124,17 +124,20 @@ ins_left {
   cond = conditions.buffer_not_empty,
   color = { fg = colors.magenta, gui = 'bold' },
 }
-ins_left { 'location' }
-ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
+ins_left {
+  'location',
+  color = { fg = colors.orange }
+}
+ins_left { 'progress', color = { fg = colors.green, gui = 'bold' } }
 ins_left {
   'diagnostics',
   sources = { 'nvim_diagnostic' },
-  symbols = { error = '❌', warn = '⚠️ ', info = 'Ⓜ️ ', hint = 'ℹ️ ' },
+  symbols = { error = ' ', warn = ' ', info = '⚉ ', hint = ' ' },
   diagnostics_color = {
     color_error = { fg = colors.red },
     color_warn = { fg = colors.yellow },
-    color_info = { fg = colors.blue },
-    color_hint = { fg = colors.cyan },
+    color_info = { fg = colors.red },
+    color_hint = { fg = colors.red }, 
   },
 }
 
@@ -161,9 +164,20 @@ ins_left {
     end
     return msg
   end,
-  icon = '💡LSP:',
   color = { fg = '#ffffff', gui = 'bold' },
 }
+
+ins_right {
+  'diff',
+  symbols = { added = ' ', modified = '☗ ', removed = ' ' },
+  diff_color = {
+    added = { fg = colors.green },
+    modified = { fg = colors.orange },
+    removed = { fg = colors.red },
+  },
+  cond = conditions.hide_in_width,
+}
+
 ins_right {
   'o:encoding',
   fmt = string.upper,
@@ -175,31 +189,20 @@ ins_right {
   'fileformat',
   fmt = string.upper,
   icons_enabled = false,
-  color = { fg = colors.green, gui = 'bold' },
+  color = { fg = colors.magenta, gui = 'bold' },
 }
 
 ins_right {
   'branch',
-  icon = '',
-  color = { fg = colors.violet, gui = 'bold' },
+  color = { fg = colors.orange, gui = 'bold' },
 }
 
-ins_right {
-  'diff',
-  symbols = { added = '🔺', modified = '🔸', removed = '🔻' },
-  diff_color = {
-    added = { fg = colors.green },
-    modified = { fg = colors.orange },
-    removed = { fg = colors.red },
-  },
-  cond = conditions.hide_in_width,
-}
 
 ins_right {
   function()
     return '▊'
   end,
-  color = { fg = colors.blue },
+  color = { fg = colors.green },
   padding = { left = 1 },
 }
 
