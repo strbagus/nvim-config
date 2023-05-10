@@ -1,7 +1,7 @@
 # MY NEOVIM
 My own **NEOVIM** Configuration.
 
-![Image](assets/nvim.png)
+![Neovim Image](https://drive.google.com/uc?id=1MrEePih5H4dk9DBe5IOwKS7vZaqTNe30)
 
 ## Plugin Manager
 - Packer: [wbthomason/packer](https://github.com/wbthomason/packer.nvim)
