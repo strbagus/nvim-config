@@ -136,8 +136,8 @@ ins_left {
   diagnostics_color = {
     color_error = { fg = colors.red },
     color_warn = { fg = colors.yellow },
-    color_info = { fg = colors.red },
-    color_hint = { fg = colors.red }, 
+    color_info = { fg = colors.blue },
+    color_hint = { fg = colors.cyan },
   },
 }
 
