@@ -52,7 +52,7 @@ return require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
   use 'andweeb/presence.nvim'   -- discord presence
-  --use 'bling/vim-bufferline'  --buffer navigation
+  use 'ap/vim-buftabline'  --buffer navigation
   if packer_bootstrap then
     require('packer').sync()
   end

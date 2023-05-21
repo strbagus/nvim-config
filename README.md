@@ -27,13 +27,14 @@ My own **NEOVIM** Configuration.
 		- [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - Fuzy Finding File Explorer: [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - Discord Presence: [andweeb/presence.nvim](https://github.com/andweeb/presence.nvim)
-
+- BufferTab: [ap/vim-buftabline](https://github.com/ap/vim-buftabline)
 ## Keybinds
 
 *Notes:*
 - `<C>` = `Ctrl`
 - `<leader>` = `Space`
 - `<CR>` = `Enter`
+- `<A>` = `Alt`
 - `*` means must focus on target file on NERDTree file explorer
 
 | Function                              | Mode   | Key                | Source          |
@@ -52,10 +53,12 @@ My own **NEOVIM** Configuration.
 | Abort completion                      | Insert | `<C-e>`            | completions.lua |
 | Confirm completion                    | Insert | `<CR>`             | completions.lua |
 | Get item Definition                   | Normal | `gd`               | lsp_config.lua  |
-| Hover item Information                | Normal | `K`                | lsp_config.lua  |
-| Move blocked line down                | Visual | `J`                | setkey.lua      |
-| Move blocked line up                  | Visual | `K`                | setkey.lua      |
+| Hover item Information                | Normal | `N`                | lsp_config.lua  |
+| Move blocked line down                | Visual | `<A-j>`            | setkey.lua      |
+| Move blocked line up                  | Visual | `<A-k>`            | setkey.lua      |
+| Prev Buffer/tab                       | Normal | `J`                | setkey.lua      |
+| Next Buffer/tab                       | Normal | `K`                | setkey.lua      |
 | Add new files *                       | Normal | `ma`               |                 |
 | Move files *                          | Normal | `mm`               |                 |
 | Delete files *                        | Normal | `md`               |                 |
-| Copy files *                          | Normal | `mc`                   |                 |
+| Copy files *                          | Normal | `mc`               |                 |

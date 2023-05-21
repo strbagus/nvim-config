@@ -14,18 +14,19 @@ vim.opt.number = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.shiftround = true
-vim.opt.expandtab = true
 
+vim.opt.expandtab = true
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.wrap = true
 
 vim.opt.scrolloff=10
-
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-vim.keymap.set("n", "J", "mzJ`z")
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("n", "<C-j>", "mzJ`z")
 vim.keymap.set("x", "p", "\"_dP")
+vim.keymap.set("n", "K", ":bnext <CR>")
+vim.keymap.set("n", "J", ":bprev <CR>")
 vim.cmd "set clipboard=unnamedplus"
 vim.cmd "set relativenumber"
 
