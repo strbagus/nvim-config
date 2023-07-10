@@ -1,8 +1,11 @@
-vim.keymap.set('n', '<C-b>', ':NERDTreeToggle<CR>')
+vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>')
 -- paste
 vim.keymap.set("x", "p", "\"_dP")
+vim.keymap.set("n", "J", ":bnext <cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "K", ":bprevious <cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>bd", ":bdelete <cr>")
 
--- Navigation
+--Navigation
 vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
@@ -25,6 +28,7 @@ vim.keymap.set('n', '<leader>fh', function() require('telescope.builtin').help_t
 -- Git
 vim.keymap.set('n', '<leader>gd', "<cmd>Gitsigns diffthis<cr>" )
 vim.keymap.set('n', '<leader>gl', "<cmd>Gitsigns toggle_linehl<cr>" )
+vim.keymap.set('n', '<leader>gb', "<cmd>GitBlameToggle<cr>" )
 
 -- Terminal
 vim.keymap.set('n', '<leader>th', "<cmd>ToggleTerm size=15 direction=horizontal<cr>" )

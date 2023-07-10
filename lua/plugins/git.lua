@@ -1,9 +1,6 @@
 return {
   {
     "lewis6991/gitsigns.nvim",
-    dependencies = {
-      'Xuyuanp/nerdtree-git-plugin'
-    },
     enabled = vim.fn.executable "git" == 1,
     opts = {
       signs = {
@@ -11,7 +8,7 @@ return {
         change = { text = "▎" },
         delete = { text = "_" },
         topdelete = { text = "‾" },
-        changedelete = { text = "~" },
+        changedelete = { text = "▎" },
         untracked = { text = "┆" },
       },
         signcolumn = true,
@@ -20,5 +17,11 @@ return {
     config = function(_, opts)
       require('gitsigns').setup(opts)
     end
-  }
+  },
+  {
+    "f-person/git-blame.nvim",
+    config = function()
+      vim.g.gitblame_date_format = '%d %b %y, %I:%M%p';
+    end
+  },
 }
